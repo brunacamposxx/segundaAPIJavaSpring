@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Tag padrão para configuração das migrations -->
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <!-- Essa tag diz para incluir um arquivo na lista de migrations,
+    podemos separar migrations em diversos arquivos, ex: v1.xml, v2.xml -->
+    <include file="db/changelog/changelog.xml"/>
+</databaseChangeLog>

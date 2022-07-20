@@ -1,0 +1,26 @@
+<!-- nesse arquivo é onde vamos configurar as migrations, basicamente ele serve para falar qual script rodar no banco.-->
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!-- Cada "changeSet" represeta uma mudança no banco de dados, esse primeira é,
+    nela vamos criar as tabelas. -->
+    <changeSet author="frank.galindo@iteris.com.br" id="CRIA_TABELAS">
+        <comment>Cria Tabelas</comment>
+        <!-- Caminho do script sql dessa migration, é nele que as instruções para criar as tabelas vão ficar  -->
+        <sqlFile path="criar_tabelas.sql" relativeToChangelogFile="true" />
+    </changeSet>
+    <!-- Não existe um padrão para o que colocar em author e id,
+    porém é importante que o author seja algo unico e que identifique alguém
+    e o id precisa ser unico entre todas as mudanças (em alguns casos as
+    pessoas usam a data e hora atual, o importante é definir um padrão e seguir) -->
+    <changeSet author="frank.galindo@iteris.com.br" id="INSERI_DADOS">
+        <comment>Inseri Dados</comment>
+        <!-- Verificar se seu banco está em PT/BR ou em EN e usar o script correto aqui -->
+        <sqlFile splitStatements="false"  endDelimiter="GO" path="insert_dados_com_datas_formato_EN.sql" relativeToChangelogFile="true" />
+    </changeSet>
+</databaseChangeLog>
